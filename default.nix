@@ -5,7 +5,7 @@ let
 
 in
 pkgs.stdenv.mkDerivation rec {
-  name = "nixpkgs-fmt";
+  name = "scraper";
 
   src = pkgs.fetchurl {
     url = "https://github.com/justinwoo/scraper/releases/download/2019-12-29/scraper";
