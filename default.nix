@@ -16,7 +16,10 @@ pkgs.stdenv.mkDerivation rec {
 
   dontStrip = true;
 
-  libPath = pkgs.lib.makeLibraryPath [ pkgs.glibc ];
+  libPath = pkgs.lib.makeLibraryPath [
+    pkgs.glibc
+    pkgs.openssl_1_1.out
+  ];
 
   unpackPhase = ''
     mkdir -p $out/bin
