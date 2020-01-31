@@ -8,8 +8,8 @@ pkgs.stdenv.mkDerivation rec {
   name = "scraper";
 
   src = pkgs.fetchurl {
-    url = "https://github.com/justinwoo/scraper/releases/download/2019-12-29/scraper";
-    sha256 = "1x8s3qj611lnf4djzhird0mxmrrj5kq319czfwbplpnmhp3z25wg";
+    url = "https://github.com/justinwoo/scraper/releases/download/2020-01-31/scraper";
+    sha256 = "1k6cpglajq9zid6a3kql6qrb05mai41caw6q253x66vqs5wvcm01";
   };
 
   buildInputs = [ pkgs.makeWrapper ];
