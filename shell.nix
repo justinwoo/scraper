@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import ./pinned.nix {} }:
 
 let
   includePaths = pkgs.lib.makeLibraryPath [
