@@ -37,7 +37,7 @@ fn get_targets_from_html(banned_words: BannedWords, html: &str) -> Vec<Target> {
             // make sure the title in the correct format and follows the rules
             lazy_static! {
                 static ref TITLE_REGEX: Regex =
-                    Regex::new(r#"\[\w+\] [\w\s-]+ - \d+ \[\d+p\]\.mkv"#).unwrap();
+                    Regex::new(r#"\[\w+\] .+ - \d+ \[\d+p\]\.mkv"#).unwrap();
             }
 
             let title = node.get("title")?;
@@ -137,6 +137,7 @@ mod tests {
             <td><a href="/view/item1" title="[crap] hello - 01 [720p].mkv">content1</a></td>
             <td><a href="/view/item2" title="[crap] hello - 02 [720p].mkv">content2</a></td>
             <td><a href="/view/item3" title="[crap] hello - 03 [720p].mkv">content3</a></td>
+            <td><a href="/view/item3" title="[crap] hello! - 04 [720p].mkv">content3</a></td>
             <td><a href="/view/item4" title="[crap] banned - 01 [720p].mkv">content3</a></td>
             <td><a href="/view/item5" title="unknown pattern">content3</a></td>
             <td><a href="/view/item5" title="[crap] wrong format">content3</a></td>
@@ -159,6 +160,10 @@ mod tests {
                 Target {
                     href: "/view/item3".to_string(),
                     title: "[crap] hello - 03 [720p].mkv".to_string()
+                },
+                Target {
+                    href: "/view/item3".to_string(),
+                    title: "[crap] hello! - 04 [720p].mkv".to_string()
                 }
             ]
         );
